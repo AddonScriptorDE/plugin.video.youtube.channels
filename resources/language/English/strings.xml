@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <strings>
   <string id="30001">My Channels</string>
-  <string id="30002">Add to category</string>
-  <string id="30003">Remove from category</string>
+  <string id="30002">Add channel</string>
+  <string id="30003">Remove channel</string>
   <string id="30004">Choose category</string>
   <string id="30005">Manage categories</string>
   <string id="30006">Channel Search</string>
@@ -15,17 +15,16 @@
   <string id="30013">Settings</string>
   <string id="30014">Force View</string>
   <string id="30015">ViewID</string>
-  <string id="30016">Added {channel} to addon favs</string>
-  <string id="30017">Removed {channel} from addon favs</string>
-  <string id="30018">Added {channel} to category {cat}</string>
-  <string id="30019">Removed {channel} from category {cat}</string>
+  <string id="30016">Popular Channels</string>
+  <string id="30018">Added {channel}</string>
+  <string id="30019">Removed {channel}</string>
   <string id="30020">Show notifications</string>
   <string id="30021">Most recent</string>
   <string id="30022">Most viewed</string>
   <string id="30023">Top rated</string>
-  <string id="30024">Add to addon favs</string>
-  <string id="30025">Remove from addon favs</string>
+  <string id="30024">Add to category</string>
   <string id="30026">Play channel</string>
+  <string id="30027">No category</string>
   <string id="30100">Category 01</string>
   <string id="30101">Category 02</string>
   <string id="30102">Category 03</string>

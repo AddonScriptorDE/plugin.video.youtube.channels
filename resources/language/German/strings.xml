@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <strings>
-  <string id="30002">Zu Kategorie hinzufügen</string>
-  <string id="30003">Aus Kategorie entfernen</string>
+  <string id="30002">Channel hinzufügen</string>
+  <string id="30003">Channel entfernen</string>
   <string id="30004">Kategorie wählen</string>
   <string id="30005">Kategorien verwalten</string>
   <string id="30007">Nächste Seite</string>
@@ -12,14 +12,12 @@
   <string id="30012">Kategorie umbenennen</string>
   <string id="30013">Einstellungen</string>
   <string id="30014">View erzwingen</string>
-  <string id="30016">{channel} zu Addon Favs hinzugefügt</string>
-  <string id="30017">{channel} aus Addon Favs entfernt</string>
-  <string id="30018">{channel} zu Kategorie {cat} hinzugefuegt</string>
-  <string id="30019">{channel} aus Kategorie {cat} entfernt</string>
+  <string id="30018">{channel} hinzugefügt</string>
+  <string id="30019">{channel} entfernt</string>
   <string id="30020">Hinweis-Meldungen anzeigen</string>
-  <string id="30024">Zu Addon Favs hinzufügen</string>
-  <string id="30025">Aus Addon Favs entfernen</string>
+  <string id="30024">Zu Kategorie hinzufügen</string>
   <string id="30026">Channel abspielen</string>
+  <string id="30027">Keine Kategorie</string>
   <string id="30100">Kategorie 01</string>
   <string id="30101">Kategorie 02</string>
   <string id="30102">Kategorie 03</string>
