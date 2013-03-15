@@ -8,7 +8,7 @@ addonID = 'plugin.video.youtube.channels'
 xbox = xbmc.getCondVisibility("System.Platform.xbox")
 addon = xbmcaddon.Addon(addonID)
 addon_work_folder=xbmc.translatePath("special://profile/addon_data/"+addonID)
-channelFile=xbmc.translatePath("special://profile/addon_data/"+addonID+"/"+addonID+".channels")
+channelFile=xbmc.translatePath("special://profile/addon_data/"+addonID+"/youtube.channels")
 iconVSX=xbmc.translatePath('special://home/addons/'+addonID+'/iconVSX.png')
 forceViewMode=addon.getSetting("forceView")
 viewMode=str(addon.getSetting("viewMode"))
@@ -37,7 +37,7 @@ def myChannels():
             user=match[0][1]
             thumb=match[0][2]
             cat=match[0][3]
-            if cat==translation(30027):
+            if cat=="NoCat":
               addChannelFavDir(name,user+"#1",'showSortSelection',thumb,user)
             elif cat not in cats:
               cats.append(cat)
@@ -132,20 +132,19 @@ def listSearchChannels(params):
         xbmcplugin.endOfDirectory(pluginhandle)
 
 def updateThumb(user):
-        contentCats=""
         if os.path.exists(channelFile):
           fh = open(channelFile, 'r')
           contentCats = fh.read()
           fh.close()
-        if user+"#DefaultFolder.png" in contentCats:
-          content = getUrl("http://www.youtube.com/user/"+user)
-          match=re.compile('\'CHANNEL_ID\', "UC(.+?)"', re.DOTALL).findall(content)
-          thumb="http://img.youtube.com/i/"+match[0]+"/mq1.jpg"
-          if user+"#"+thumb not in content:
-            newContent=contentCats.replace(user+"#DefaultFolder.png",user+"#"+thumb)
-            fh = open(channelFile, 'w')
-            fh.write(newContent)
-            fh.close()
+          if "#"+user+"#DefaultFolder.png" in contentCats:
+            content = getUrl("http://www.youtube.com/user/"+user)
+            match=re.compile('\'CHANNEL_ID\', "UC(.+?)"', re.DOTALL).findall(content)
+            thumb="http://img.youtube.com/i/"+match[0]+"/mq1.jpg"
+            if user+"#"+thumb not in content:
+              newContent=contentCats.replace(user+"#DefaultFolder.png",user+"#"+thumb)
+              fh = open(channelFile, 'w')
+              fh.write(newContent)
+              fh.close()
 
 def listVideos(params):
         spl=params.split("#")
@@ -273,6 +272,7 @@ def addChannel(args):
             if index>=0:
               pl = playlists[index]
           if pl!="":
+            if pl==translation(30027): pl="NoCat"
             playlistEntry=name+"#"+id+"#"+thumb+"#"+pl+"#"
             if os.path.exists(channelFile):
               fh = open(channelFile, 'r')
@@ -452,7 +452,7 @@ def addChannelFavDir(name,url,mode,iconimage,user):
         if iconimage=="": iconimage="DefaultFolder.png"
         liz=xbmcgui.ListItem(name, iconImage="DefaultFolder.png", thumbnailImage=iconimage)
         liz.setInfo( type="Video", infoLabels={ "Title": name } )
-        liz.addContextMenuItems([(translation(30026), 'XBMC.RunPlugin(plugin://'+addonID+'/?mode=playChannel&url='+user+')',),(translation(30024), 'RunPlugin(plugin://'+addonID+'/?mode=addToCat&url='+urllib.quote_plus(name+"#"+user+"#"+iconimage+"#")+')',),(translation(30003), 'RunPlugin(plugin://'+addonID+'/?mode=removeChannel&url='+urllib.quote_plus(name+"#"+user+"#"+iconimage+"#"+translation(30027)+"#")+')',)])
+        liz.addContextMenuItems([(translation(30026), 'XBMC.RunPlugin(plugin://'+addonID+'/?mode=playChannel&url='+user+')',),(translation(30024), 'RunPlugin(plugin://'+addonID+'/?mode=addToCat&url='+urllib.quote_plus(name+"#"+user+"#"+iconimage+"#")+')',),(translation(30003), 'RunPlugin(plugin://'+addonID+'/?mode=removeChannel&url='+urllib.quote_plus(name+"#"+user+"#"+iconimage+"#NoCat#")+')',)])
         ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=u,listitem=liz,isFolder=True)
         return ok
 
