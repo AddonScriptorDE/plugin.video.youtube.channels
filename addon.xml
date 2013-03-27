@@ -11,5 +11,9 @@
         <summary lang="en">Organize and watch your favourite YouTube channels</summary>
         <language></language>
         <description lang="en">Organize and watch your favourite YouTube channels</description>
+        <website></website>
+        <source>https://github.com/AddonScriptorDE/plugin.video.youtube.channels</source>
+        <forum>http://forum.xbmc.org/showthread.php?tid=159284</forum>
+        <email></email> 
     </extension>
 </addon>
